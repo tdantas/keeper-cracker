@@ -11,9 +11,9 @@
 (defn- crack [encrypted-password lines]
   (some #(when (try-fn % encrypted-password) %) lines))
 
-;; - I'm partitioning ( batch size 100 lines ) the lines to reduce the thread creation overhead for each line
-;; - pmap will run N cpu + 2 which is great for our usecase, we have some "bounded" number of threads
-;; - I'm stopping the process as soon as we found the password
+;; - I'm partitioning ( batch size 100 ) the lines to reduce the thread spawn overhead for each line
+;; - pmap will run in N cpus + 2 threads which is great for our usecase, we have some "bounded" number of threads
+;; - I'm stopping the process as soon as we found the password with 'reduced'
 
 (defn run [filename encrypted-password]
   (with-open [rdr (io/reader (io/file filename))]
