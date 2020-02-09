@@ -1,7 +1,6 @@
 (ns fexco.main
   (:gen-class)
-  (:require [clojure.string :as s]
-            [clojure.java.io :as io]))
+  (:require [clojure.java.io :as io]))
 
 ;; - cpu intensive task
 (defn- try-fn [plain encrypted]
