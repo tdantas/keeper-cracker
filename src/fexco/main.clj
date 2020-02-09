@@ -29,9 +29,14 @@
   (let [[filename encrypted-password] args]
     (println "Password: " (run filename encrypted-password))))
 
-
 (comment
+
   "USAGE"
+
+  ;; previous solution I tried to use my own lazy-seq ( shame on me )
+  ;; currently I'm using the line-seq and trimming the amount of code written
+
+  ;; also I'm not using any shared state between threads ( previous solution I was using an atom )
+  ;; which makes the code much more simpler and easy to read
+
   (run "passwords.txt" "some-encrypted-password"))
-
-
