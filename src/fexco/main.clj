@@ -23,7 +23,7 @@
 
 
 ;; we could validate the filename / encrypted password
-;; but for simplicify I'm assuming the inputs are correct
+;; but for simplicity I'm assuming the inputs are correct
 
 (defn -main [& args]
   (let [[filename encrypted-password] args]
